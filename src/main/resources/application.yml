@@ -1,0 +1,6 @@
+spring:
+  application:
+    name : socialNetwork
+
+server:
+  port: 9000

@@ -1,7 +1,7 @@
-package com.example.socialNetwork.controller;
+package com.example.social.controller;
 
-import com.example.socialNetwork.entities.SocialNetworkPost;
-import com.example.socialNetwork.service.SocialNetworkService;
+import com.example.social.dto.SocialNetworkPostDto;
+import com.example.social.service.SocialNetworkService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,18 +21,27 @@ public class SocialNetworkController {
     @Autowired
     private SocialNetworkService service;
 
+    /**
+     * fetching top 10 post from the DB
+     * @return
+     */
     @GetMapping("/getTop10")
-    public ResponseEntity<List<SocialNetworkPost>> findTop10ByViewCount(){
+    public ResponseEntity<List<SocialNetworkPostDto>> findTop10ByViewCount(){
         log.info("Inside getTop10() ");
-        List<SocialNetworkPost> top10ByViewCount = service.findTop10ByViewCount();
+        List<SocialNetworkPostDto> top10ByViewCount = service.findTop10ByViewCount();
         log.info("Top 10 list : " + top10ByViewCount);
         return new ResponseEntity<>(top10ByViewCount, HttpStatus.OK);
     }
 
+    /**
+     * fetching all post by an author
+     * @param author
+     * @return
+     */
     @GetMapping("/search/{author}")
-    public  ResponseEntity<List<SocialNetworkPost>> findAll(@PathVariable("author") String author){
+    public  ResponseEntity<List<SocialNetworkPostDto>> findAll(@PathVariable("author") String author){
         log.info( "Inside findAll() ");
-        List<SocialNetworkPost> authors = service.findByAuthor(author);
+        List<SocialNetworkPostDto> authors = service.findByAuthor(author);
         log.info("List of post : " + authors );
         return new ResponseEntity<>(authors, HttpStatus.OK);
     }

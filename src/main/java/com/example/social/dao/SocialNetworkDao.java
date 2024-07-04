@@ -1,10 +1,9 @@
-package com.example.socialNetwork.dao;
+package com.example.social.dao;
 
-import com.example.socialNetwork.entities.SocialNetworkPost;
+import com.example.social.entities.SocialNetworkPost;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.awt.print.Pageable;
 import java.util.List;
 
 @Repository

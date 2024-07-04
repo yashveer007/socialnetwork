@@ -2,7 +2,7 @@
 server:
   port: 9000
 
-#DB Connection
+# MYSQL DB Connection
 spring:
   application:
     name: socialNetwork
@@ -15,3 +15,13 @@ spring:
     url: jdbc:mysql://localhost:3306/e_com_db
     username: root
     password: password
+
+#H2 DB Connection
+#spring:
+#  datasource:
+#    url: jdbc:h2:mem:testdb
+#    driverClassName : org.h2.Driver
+#    username : root
+#    password: password
+#  jpa:
+#    database-platform: org.hibernate.dialect.H2Dialect
